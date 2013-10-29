@@ -1,6 +1,6 @@
-package com.mycompany.app.processor;
+package com.gigaspaces.demo.processor;
 
-import com.mycompany.app.common.Data;
+import com.gigaspaces.demo.common.Data;
 
 import org.openspaces.events.adapter.SpaceDataEvent;
 

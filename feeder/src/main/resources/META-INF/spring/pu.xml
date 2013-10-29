@@ -43,7 +43,7 @@
     <!--
         The Data feeder bean, writing new Data objects to the space in a constant interval.
     -->
-    <bean id="dataFeeder" class="com.mycompany.app.feeder.Feeder" depends-on="gigaSpace">
+    <bean id="dataFeeder" class="com.gigaspaces.demo.feeder.scala.Feeder" depends-on="gigaSpace">
         <property name="numberOfTypes" value="${numberOfTypes}" />
     </bean>
     

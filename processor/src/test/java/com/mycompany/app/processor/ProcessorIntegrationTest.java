@@ -1,6 +1,6 @@
 package com.mycompany.app.processor;
 
-import com.mycompany.app.common.Data;
+import com.gigaspaces.demo.common.Data;
 
 import org.junit.runner.RunWith;
 import org.junit.Before;

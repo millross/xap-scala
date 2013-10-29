@@ -1,6 +1,7 @@
 package com.mycompany.app.processor;
 
-import com.mycompany.app.common.Data;
+import com.gigaspaces.demo.processor.Processor;
+import com.gigaspaces.demo.common.Data;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

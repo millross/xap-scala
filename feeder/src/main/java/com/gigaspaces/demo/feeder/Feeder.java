@@ -1,6 +1,6 @@
-package com.mycompany.app.feeder;
+package com.gigaspaces.demo.feeder;
 
-import com.mycompany.app.common.Data;
+import com.gigaspaces.demo.common.Data;
 
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.SpaceInterruptedException;
