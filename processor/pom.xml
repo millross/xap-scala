@@ -13,7 +13,9 @@
     </parent>
     <properties>
         <gsType>PU</gsType>
-        <scala.version>2.10.1</scala.version>
+        <spring.version>3.2.4.RELEASE</spring.version>
+        <cglib.version>3.0</cglib.version>
+        <asm.version>4.2</asm.version>
     </properties>
     <dependencies>
         <dependency>
@@ -23,9 +25,18 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-        	<groupId>org.scala-lang</groupId>
-        	<artifactId>scala-library</artifactId>
-        	<version>${scala.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.ow2.asm</groupId>
+        	<artifactId>asm-all</artifactId>
+        	<version>${asm.version}</version>
+        </dependency>        <dependency>
+        	<groupId>cglib</groupId>
+        	<artifactId>cglib</artifactId>
+        	<version>${cglib.version}</version>
         </dependency>
     </dependencies>
     <build>

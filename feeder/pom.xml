@@ -13,7 +13,6 @@
     </parent>
     <properties>
         <gsType>PU</gsType>
-        <scala.version>2.10.1</scala.version>
     </properties>
     <dependencies>
         <dependency>
@@ -21,11 +20,6 @@
            	<artifactId>common</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-        	<groupId>org.scala-lang</groupId>
-        	<artifactId>scala-library</artifactId>
-        	<version>${scala.version}</version>
         </dependency>
     </dependencies>
     <build>

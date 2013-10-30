@@ -8,7 +8,7 @@ import scala.concurrent.{future}
 import scala.concurrent._
 import ExecutionContext.Implicits.global
 import scala.beans.BeanProperty
-import com.gigaspaces.demo.common.Data
+import com.gigaspaces.demo.common.scala.Data
 
 /**
  * @author Jez

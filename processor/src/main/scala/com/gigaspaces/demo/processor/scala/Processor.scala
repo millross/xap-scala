@@ -2,7 +2,7 @@ package com.gigaspaces.demo.processor.scala
 
 import java.util.logging.Logger
 import org.openspaces.events.adapter.SpaceDataEvent
-import com.gigaspaces.demo.common.Data
+import com.gigaspaces.demo.common.scala.Data
 import scala.beans.BeanProperty
 
 /**

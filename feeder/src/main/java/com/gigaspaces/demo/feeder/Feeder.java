@@ -1,6 +1,6 @@
 package com.gigaspaces.demo.feeder;
 
-import com.gigaspaces.demo.common.Data;
+import com.gigaspaces.demo.common.scala.Data;
 
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.SpaceInterruptedException;

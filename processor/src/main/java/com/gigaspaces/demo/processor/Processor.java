@@ -1,6 +1,6 @@
 package com.gigaspaces.demo.processor;
 
-import com.gigaspaces.demo.common.Data;
+import com.gigaspaces.demo.common.scala.Data;
 
 import org.openspaces.events.adapter.SpaceDataEvent;
 

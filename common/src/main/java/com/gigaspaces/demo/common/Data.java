@@ -16,7 +16,7 @@ public class Data {
 
     private String id;
 
-    private Long type;
+    private Long dataType;
 
     private String rawData;
 
@@ -35,8 +35,8 @@ public class Data {
      * Constructs a new Data object with the given type
      * and raw data.
      */
-    public Data(long type, String rawData) {
-        this.type = type;
+    public Data(long dataType, String rawData) {
+        this.dataType = dataType;
         this.rawData = rawData;
         this.processed = false;
     }
@@ -62,16 +62,16 @@ public class Data {
      * a partitioned space.
      */
     @SpaceRouting
-    public Long getType() {
-        return type;
+    public Long getDataType() {
+        return dataType;
     }
 
     /**
      * The type of the data object. Used as the routing field when working with
      * a partitioned space.
      */
-    public void setType(Long type) {
-        this.type = type;
+    public void setDataType(Long dataType) {
+        this.dataType = dataType;
     }
 
     /**
@@ -117,6 +117,6 @@ public class Data {
     }
 
     public String toString() {
-        return "id[" + id + "] type[" + type + "] rawData[" + rawData + "] data[" + data + "] processed[" + processed + "]";
+        return "id[" + id + "] dataType[" + dataType + "] rawData[" + rawData + "] data[" + data + "] processed[" + processed + "]";
     }
 }
