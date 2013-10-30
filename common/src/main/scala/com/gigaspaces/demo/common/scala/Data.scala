@@ -17,7 +17,7 @@ class Data(@BeanProperty @SpaceRouting var dataType: java.lang.Long,
 
   @BeanProperty
   @(SpaceId @beanGetter)(autoGenerate = true)
-  var id: String = null;
+  var id: String = null
 
   @BooleanBeanProperty
   var processed: Boolean = false

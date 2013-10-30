@@ -12,7 +12,7 @@ import scala.beans.BeanProperty
  */
 class Processor {
 
-  val log= Logger.getLogger(this.getClass().getName())
+  val log= Logger.getLogger(this.getClass.getName)
 
   @BeanProperty
   var workDuration = 100
@@ -21,9 +21,9 @@ class Processor {
   def processData(data: Data): Data = {
     Thread.sleep(workDuration)
     data.setProcessed(true)
-    data.setData("PROCESSED : " + data.getRawData())
-    log.info(" ------ PROCESSED : " + data);
-    return data;
+    data.setData("PROCESSED : " + data.getRawData)
+    log.info(" ------ PROCESSED : " + data)
+    data
   }
 
 }

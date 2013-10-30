@@ -4,7 +4,7 @@ import org.springframework.beans.factory.{DisposableBean, InitializingBean}
 import java.util.logging.Logger
 import org.openspaces.core.GigaSpace
 import org.openspaces.core.context.GigaSpaceContext
-import scala.concurrent.{future}
+import scala.concurrent.future
 import scala.concurrent._
 import ExecutionContext.Implicits.global
 import scala.beans.BeanProperty
@@ -15,31 +15,32 @@ import com.gigaspaces.demo.common.scala.Data
  */
 class Feeder extends InitializingBean with DisposableBean {
 
-  val log= Logger.getLogger(this.getClass().getName());
+  val log= Logger.getLogger(this.getClass.getName)
 
   @BeanProperty
-  var defaultDelay = 1000;
+  var defaultDelay = 1000
 
   @BeanProperty
-  var numberOfTypes = 10;
+  var numberOfTypes = 10
 
   @GigaSpaceContext
-  var gigaSpace: GigaSpace = null;
+  var gigaSpace: GigaSpace = null
 
-  private var cancelled = false;
+  private var cancelled = false
 
-  def destroy = {
-    cancelled = true;
+  override def destroy() = {
+    cancelled = true
   }
 
   def afterPropertiesSet() = {
     future[Unit] {
-      var counter = 1;
+      var counter = 1
       while (!cancelled) {
         val time = System.currentTimeMillis
-        val data: Data = new Data((({
-          counter += 1; counter - 1
-        }) % numberOfTypes), "FEEDER " + time)
+        val data: Data = new Data({
+          counter += 1
+          counter - 1
+        } % numberOfTypes, "FEEDER " + time)
 
         gigaSpace.write(data)
         log.info("--- FEEDER WROTE " + data)
