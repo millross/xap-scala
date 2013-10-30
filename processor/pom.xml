@@ -16,6 +16,7 @@
         <spring.version>3.2.4.RELEASE</spring.version>
         <cglib.version>3.0</cglib.version>
         <asm.version>4.2</asm.version>
+        <spring.scala.version>1.0.0.RC1</spring.scala.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,6 +38,11 @@
         	<groupId>cglib</groupId>
         	<artifactId>cglib</artifactId>
         	<version>${cglib.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.scala</groupId>
+            <artifactId>spring-scala_2.10</artifactId>
+            <version>${spring.scala.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -64,4 +70,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>milestone.repo.springsource.org</id>
+            <name>repo.springsource.org-milestone</name>
+            <url>https://repo.springsource.org/libs-milestone</url>
+        </repository>
+    </repositories>
 </project>

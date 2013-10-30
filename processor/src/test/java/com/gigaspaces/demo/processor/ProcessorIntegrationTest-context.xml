@@ -15,12 +15,7 @@
        http://www.openspaces.org/schema/remoting http://www.openspaces.org/schema/remoting/openspaces-remoting.xsd
        http://www.openspaces.org/schema/sla http://www.openspaces.org/schema/sla/openspaces-sla.xsd">
 
-    <!--
-        Spring property configurer which allows us to use system properties (such as user.name).
-    -->
-    <bean id="propertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
-
-    <context:component-scan base-package="com.gigaspaces.demo.processor" />
+    <context:component-scan base-package="com.gigaspaces.demo.processor.scala.configuration" />
     <task:annotation-driven />
 
     <!--
@@ -37,11 +32,6 @@
         OpenSpaces simplified space API built on top of IJSpace/JavaSpace.
     -->
     <os-core:giga-space id="gigaSpace" space="space" tx-manager="transactionManager"/>
-
-    <!--
-        The data processor bean
-    -->
-    <bean id="dataProcessor" class="com.gigaspaces.demo.processor.scala.Processor"/>
 
     <!--
         A polling event container that perfoms (by default) polling take operations against
