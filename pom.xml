@@ -28,7 +28,8 @@
 		<module>common</module>
 		<module>processor</module>
 		<module>feeder</module>
-	</modules>
+        <module>post-processing-router</module>
+    </modules>
 	<dependencies>
         <dependency>
         	<groupId>org.scala-lang</groupId>
