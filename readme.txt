@@ -1,29 +1,58 @@
-Creates a basic SBA application with two processing units. The Feeder
+Takes the basic SBA application and converts it selectively to a Scala
+based application, with a view to highlighting the implications of using
+Scala with Gigaspaces/XAP. 
+
+At the current point in time the key implications are that 
+(1) There are benefits to moving away from XML config, especially where
+class and method names are used within beans
+(2) Scala leads to more compact code with less boilerplate, thus improving
+maintainability
+(3) Support in Spring for Scala is limited
+(4) Spring integration's Scala DSL is not yet compatible with Scala 2.10, meaning
+that it is incompatible with the XAP scala libraries
+
+Creates a basic SBA application with three processing units. The Feeder
 processing unit sends Data objects through the Space to a Processor.
 The Space and the Processor are collocated in the same processing unit.
-JVM: >= 5.
+JVM: >= 5. Subsequent to processing, the Router takes the processed Data object and
+routes it on to either of two outputs via a Spring Integration flow (not implemented 
+due to the SI Scala version incompatibility).
+
+Finally there is an additional module - the Monitor application used as a quick demo
+for Scala-based predicates using the gigaspaces library
 
 GENERAL DESCRIPTION:
 --------------------
 
-  The project consists of three modules: common, processor and feeder. The common
-module includes all the shared resources and classes between both the processor
-and the feeder. In our case, the common module includes the "Data" class which
+The project consists of five modules: common, processor, feeder, router and monitor. The 
+common module includes all the shared resources and classes between the processor, feeder
+and router. In our case, the common module includes the "Data" class which
 is written and taken from the Space.
 
-  The processor module, which is a processing unit, starts up a Space and on top of
+The processor module, which is a processing unit, starts up a Space and on top of
 it starts a polling container that performs a take from the Space of unprocessed Data
 entries. The take operation results in an "event" that will end up executing the 
 "Processor" class. The Processor "processes" the Data object (by setting its processed
 flag to true) and returns it. The return value is automatically written back to the Space.
-  The processor also comes with both a unit test and integration test that verifies its behavior.
+The processor also comes with both a unit test and integration test that verifies its behavior.
 
-  The feeder module, which is also a processing unit, connects to a Space remotely and
+The feeder module, which is also a processing unit, connects to a Space remotely and
 writes unprocessed Data objects to the Space (resulting in events firing up within
 the processor processing unit).
 
 BUILDING, PACKAGING, RUNNING, DEPLOYING
 ---------------------------------------
+
+Prior to compiling the application, it is necessary to register the gigaspaces-related 
+dependencies with maven.
+
+The core gigaspaces libraries (including runtime dependencies) can be registered using the command
+$GS_HOME/tools/maven/installmavenrep.sh (or .bat if on Windows)
+
+The gigaspaes scala libraries can be registered by issuing the following command
+mvn install:install-file -DgroupId=com.gigaspaces.scala -DartifactId=gigaspaces-scala -Dversion=9.6.2-9900-RELEASE -Dfile=$GS_HOME/lib/platform/scala/gs-openspaces-scala.jar -Dpackaging=jar
+
+Where $GS_HOME points to the root of your Gigaspaces/XAP installation
 
 Quick list:
 
