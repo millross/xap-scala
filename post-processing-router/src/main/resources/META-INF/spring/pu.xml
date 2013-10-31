@@ -43,13 +43,21 @@
         Once a match is found, the data processor bean event listener is triggered using the
         annotation adapter.
     -->
-    <!-- <os-events:polling-container id="dataProcessorPollingEventContainer" giga-space="gigaSpace">
+    <os-events:polling-container id="dataProcessorPollingEventContainer" giga-space="gigaSpace">
         <os-events:tx-support tx-manager="transactionManager"/>
-        <os-core:template ref="unprocessedDataTemplate" />
+        <os-events:receive-operation-handler>
+            <bean class="org.openspaces.events.polling.receive.SingleTakeReceiveOperationHandler">
+                <property name="nonBlocking" value="true" />
+                <property name="nonBlockingFactor" value="3000" />
+            </bean>
+        </os-events:receive-operation-handler>
+
+<!--        <os-core:template ref="routingQuery" /> -->
+        <os-core:sql-query where="processed = true and sent &lt;&gt; true" class="com.gigaspaces.demo.common.scala.Data"></os-core:sql-query>
         <os-events:listener>
             <os-events:annotation-adapter>
-                <os-events:delegate ref="dataProcessor"/>
+                <os-events:delegate ref="router"/>
             </os-events:annotation-adapter>
         </os-events:listener>
-    </os-events:polling-container> -->
+    </os-events:polling-container>
 </beans>

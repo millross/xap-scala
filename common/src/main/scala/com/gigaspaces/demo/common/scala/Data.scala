@@ -25,5 +25,8 @@ class Data(@BeanProperty @SpaceRouting var dataType: java.lang.Long,
   @BeanProperty
   var data: String = null
 
+  @BooleanBeanProperty
+  var sent: Boolean = false
+
   override def toString = "id[" + id + "] dataType[" + dataType + "] rawData[" + rawData + "] data[" + data + "] processed[" + processed + "]"
 }

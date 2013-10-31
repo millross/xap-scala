@@ -29,6 +29,7 @@
 		<module>processor</module>
 		<module>feeder</module>
         <module>post-processing-router</module>
+        <module>monitor</module>
     </modules>
 	<dependencies>
         <dependency>

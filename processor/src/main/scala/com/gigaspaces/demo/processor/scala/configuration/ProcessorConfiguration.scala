@@ -19,6 +19,7 @@ class ProcessorConfiguration {
   def unprocessedDataTemplate = {
     val template = new Data()
     template.setProcessed(false)
+    template.setSent(false)
     template
   }
 
