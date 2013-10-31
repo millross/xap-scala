@@ -17,13 +17,6 @@ class RouterConfiguration {
   @Bean
   def router = new PostProcessingRouter
 
-  @Bean
-  def routingQuery = {
-    val query = new SQLQuery[Data] (classOf[Data], "processed = ?", // AND sent = ?",
-      TRUE) //, FALSE)
-    query
-  }
-
   // Relatively trivial Spring integration flow in Scala, just to show how it can be achieved, note that there is
   // a Scala version conflict
   def siRoutedFlow = {
