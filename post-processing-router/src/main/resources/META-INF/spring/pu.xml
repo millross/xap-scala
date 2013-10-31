@@ -19,6 +19,9 @@
     -->
     <os-core:giga-space-context/>
 
+    <!-- Enable support for @Polling annotation -->
+    <os-events:annotation-support />
+
     <!--
         A bean representing a space (an IJSpace implementation).
 
@@ -41,9 +44,9 @@
         A polling event container that perfoms (by default) polling take operations against
         the space using the provided template (in our case, and the non processed data objects).
         Once a match is found, the data processor bean event listener is triggered using the
-        annotation adapter.
+        annotation adapter. This is left in for comparison with the annotation-based version in PostProcessingRouter
     -->
-    <os-events:polling-container id="dataProcessorPollingEventContainer" giga-space="gigaSpace">
+<!--    <os-events:polling-container id="dataProcessorPollingEventContainer" giga-space="gigaSpace">
         <os-events:tx-support tx-manager="transactionManager"/>
         <os-events:receive-operation-handler>
             <bean class="org.openspaces.events.polling.receive.SingleTakeReceiveOperationHandler">
@@ -52,12 +55,11 @@
             </bean>
         </os-events:receive-operation-handler>
 
-<!--        <os-core:template ref="routingQuery" /> -->
         <os-core:sql-query where="processed = true and sent &lt;&gt; true" class="com.gigaspaces.demo.common.scala.Data"></os-core:sql-query>
         <os-events:listener>
             <os-events:annotation-adapter>
                 <os-events:delegate ref="router"/>
             </os-events:annotation-adapter>
         </os-events:listener>
-    </os-events:polling-container>
+    </os-events:polling-container> -->
 </beans>
