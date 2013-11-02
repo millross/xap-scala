@@ -39,8 +39,7 @@ public class ProcessorIntegrationTest {
         gigaSpace.write(data);
 
         // create a template of the processed data (processed)
-        Data template = new Data();
-        template.setDataType(1l);
+        Data template = new Data(1l, null);
         template.setProcessed(true);
 
         // wait for the result
