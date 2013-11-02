@@ -4,6 +4,8 @@ import com.gigaspaces.demo.common.scala.Data
 import org.springframework.context.annotation.{Bean, Configuration}
 import com.gigaspaces.demo.processor.scala.Processor
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
+import com.j_spaces.core.client.SQLQuery
+import java.lang.Boolean._
 
 /**
  * @author Jez
@@ -16,12 +18,7 @@ class ProcessorConfiguration {
    * @return
    */
   @Bean
-  def unprocessedDataTemplate = {
-    val template = new Data()
-    template.setProcessed(false)
-    template.setSent(false)
-    template
-  }
+  def unprocessedDataTemplate = new SQLQuery[Data] (classOf[Data], "processed = ?", FALSE)
 
   /**
    * The data processor Spring bean for the configuration
