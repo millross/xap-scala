@@ -35,7 +35,7 @@ public class ProcessorIntegrationTest {
     @Test
     public void verifyProcessing() throws Exception {
         // write the data to be processed to the Space
-        Data data = new Data(1L, "test");
+        Data data = new Data(1, "test");
         gigaSpace.write(data);
 
         // create a template of the processed data (processed)
