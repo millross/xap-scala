@@ -19,7 +19,7 @@ object MonitorApp extends App {
   val predicateGigaSpace = new GigaSpaceConfigurer(space).gigaSpace.predicate
 
   // Loop writing out the info (> and < seemed to cause problems for macro expansion)
-  val count = predicateGigaSpace count { data: Data => data.dataType == 10L }
+  val count = predicateGigaSpace count { data: Data => data.dataType >= 10L }
 
   log.info("Count is " + count)
 

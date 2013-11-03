@@ -8,11 +8,11 @@ import scala.annotation.meta.beanGetter
  * @author Jez
  */
 @SpaceClass
-class Data(@BeanProperty @(SpaceRouting  @beanGetter) var dataType: java.lang.Long,
+class Data(@BeanProperty @(SpaceRouting  @beanGetter) var dataType: Long,
            @BeanProperty var rawData: String) {
 
   def this() { // Auxiliary constructor where params unavailable
-    this(null, null)
+    this(-1, null)
   }
 
   @BeanProperty
